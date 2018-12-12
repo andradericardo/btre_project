@@ -38,15 +38,34 @@
                 {% else %}
                     <li class="nav-item mr-3">
                 {% endif %}
-                    <a class="nav-link" href="{% url 'listings'%}">Featured Listings</a>
+                    <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>
                 </li>
                 <!-- End LISTINGS highlight -->
 
             </ul>
 
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item mr-3"> <a class="nav-link" href="register.html"> <i class="fas fa-user-plus"></i> Register</a> </li>
-                <li class="nav-item mr-3"> <a class="nav-link" href="login.html"> <i class="fas fa-sign-in-alt"></i> Login</a> </li>
+                <!-- Register -->
+                {% if 'register' in request.path %}
+                    <li class="nav-item active mr-3">
+                {% else %}
+                    <li class="nav-item mr-3">
+                {% endif %}
+                    <a class="nav-link" href="{% url 'register' %}">
+                        <i class="fas fa-user-plus"></i> Register
+                    </a>
+                </li>
+
+                <!-- Login -->
+                {% if 'login' in request.path %}
+                    <li class="nav-item active mr-3">
+                {% else %}
+                    <li class="nav-item mr-3">
+                {% endif %}
+                    <a class="nav-link" href="{% url 'login' %}">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
